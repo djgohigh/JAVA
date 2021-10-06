@@ -1,0 +1,162 @@
+// main
+
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class main {
+
+	public static void main(String[] args) {
+		int choice;
+		Scanner sc = new Scanner(System.in);
+		String phoneName = "";
+		String phoneCompany = "";
+		int startPrice = 0;
+		int endPrice = 0;
+		
+		SmartPhone phone[] = new SmartPhone[100];
+		initData(phone);
+		
+		while(true) {
+			menu();
+			choice = sc.nextInt();
+			sc.nextLine();
+			
+			switch(choice) {
+			case 1: // 모두 조회
+				for(int i = 0; i<phone.length; i++) {
+					phone[i].showSmartPhoneInfo();
+				}
+			case 2: // 모델명 조회
+				System.out.printf("모델명 입력: \n");
+				phoneName = sc.nextLine();
+				searchPhoneName(phoneName, phone);
+				break;
+			case 3: // 제조사 조회
+				System.out.printf("제조사 입력: \n");
+				phoneCompany = sc.nextLine();
+				searchPhoneCompany(phoneCompany, phone);
+				break;
+			case 4: // 가격 조회
+				System.out.printf("시작, 끝 값 입력: \n");
+				startPrice = sc.nextInt();
+				endPrice = sc.nextInt();
+				searchPhonePrice(startPrice, endPrice, phone);
+				break;
+			case 5: // 종료
+				System.out.printf("종료합니다. \n");
+				return;
+			}
+		}
+	}
+	
+	public static void searchPhoneName(String title,SmartPhone phone[]) {
+		for(int i=0; i<100; i++) {
+			if(phone[i] == null) {
+				break;
+			} else {
+				String DB_name = phone[i].getPhoneName();
+				if(DB_name.contains(title)==true) {
+					phone[i].showSmartPhoneInfo();
+					System.out.printf("---------------- \n");
+				}
+			}
+		}
+	}
+	
+	public static void searchPhoneCompany(String title,SmartPhone phone[]) {
+		for(int i=0; i<100; i++) {
+			if(phone[i] == null) {
+				break;
+			} else {
+				String DB_company = phone[i].getPhoneCompany();
+				if(DB_company.contains(title)==true) {
+					phone[i].showSmartPhoneInfo();
+					System.out.printf("---------------- \n");
+				}
+			}
+		}
+	}
+	
+	private static void searchPhonePrice(int startPrice, int endPrice,
+		SmartPhone phone[]) {
+			for(int i = 0; i<100; i++) {
+				if(phone[i] == null) {
+					break;
+				} else {
+					int DB_price = phone[i].getPhonePrice();
+					if(DB_price <= endPrice && DB_price >= startPrice) {
+						phone[i].showSmartPhoneInfo();
+						System.out.printf("---------------- \n");
+					}
+;				}
+				}
+			}
+	
+	public static void initData(SmartPhone phone[]) {
+		phone[0]=new SmartPhone("갤럭시 7","삼성",320000,"SKT",600,"화이트 ]b");
+		phone[1]=new SmartPhone("갤럭시 7","삼성",300000,"LG U+",600,"블루");
+		phone[2]=new SmartPhone("갤럭시 7","삼성",310000,"KT",600,"블랙");
+		phone[3]=new SmartPhone("갤럭시 8","삼성",400000,"SKT",500,"블루");
+		phone[4]=new SmartPhone("갤럭시 8","삼성",410000,"SKT",600,"화이트");
+		phone[5]=new SmartPhone("갤럭시 8","삼성",420000,"SKT",500,"블루");
+		phone[6]=new SmartPhone("G7","LG",250000,"LG U+",650,"화이트");
+		phone[7]=new SmartPhone("G7","LG",240000,"KT",650,"블루");
+		phone[8]=new SmartPhone("G8","LG",300000,"LG U+",600,"실버");
+		phone[9]=new SmartPhone("G8","LG",310000,"SKT",600,"골드");
+		phone[10]=new SmartPhone("아이폰12 Pro","Apple",1350000,"SKT",600,"실버");
+		phone[11]=new SmartPhone("아이폰12","Apple",950000,"SKT",600,"레드");
+	}
+	
+	public static void menu() {
+		System.out.printf("* 스마트폰 검색프로그램 \n");
+		System.out.printf("1. 모두 조회\n");
+		System.out.printf("2. 모델명 조회\n");
+		System.out.printf("3. 제조사 조회\n");
+		System.out.printf("4. 가격 조회\n");
+		System.out.printf("5. 종료\n");
+	}
+}
+
+// Smartphone
+
+public class SmartPhone {
+	private String name;
+	private String company;
+	private int price;
+	private String provider;
+	private int weight;
+	private String color;
+	
+	public SmartPhone() {
+}
+	public SmartPhone(String name, String company, int price, String provider,
+			int weight, String color) {
+		this.name=name;
+		this.company=company;
+		this.price=price;
+		this.provider=provider;
+		this.weight=weight;
+		this.color=color;
+	}
+	
+	public String getPhoneName() {
+		return name;
+	}
+	
+	public String getPhoneCompany() {
+		return company;
+	}
+	
+	public int getPhonePrice() {
+		return price;
+	}
+	
+	public void showSmartPhoneInfo() {
+		System.out.printf("제목: %s \n", name);
+		System.out.printf("제조사: %s \n", company);
+		System.out.printf("가격: %d원 \n", price);
+		System.out.printf("통신사: %s \n", provider);
+		System.out.printf("무게: %dkg \n", weight);
+		System.out.printf("컬러: %s \n", color);
+	}
+}

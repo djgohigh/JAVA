@@ -1,0 +1,683 @@
+// 문제 1-1
+package next01;
+
+public class quiz1x1 {
+
+	public static void main(String[] args) {
+		int num1 = 22;
+		int num2 = 11;
+		int result = num1+num2;
+		System.out.printf("result: %d", result);
+	}
+
+}
+
+// 문제 1-2
+package next01;
+
+public class quiz1x2 {
+
+	public static void main(String[] args) {
+		short num1 =3;
+		short num2 =5;
+		System.out.printf("%d+%d=%d", num1, num2, num1+num2);
+	}
+}
+
+//문제 1-3
+package next01;
+
+import java.util.Scanner;
+
+class byEveryone{
+	int age;
+	double height;
+	
+	public static void byEveryone() {
+		System.out.println("다음에 뵙겠습니다.");
+	}
+	
+	public byEveryone(int age, double height) {
+		this.age=age;
+		this.height=height;
+	}
+	
+	public static void byEveryone(int age, double height) {
+		Scanner sc = new Scanner(System.in);
+		age=sc.nextInt();
+		height=sc.nextDouble();
+		System.out.printf("나이: %d, 키: %f", age, height);
+	}
+}
+
+public class quiz1x3 {
+
+	public static void main(String[] args) {
+		byEveryone s1 = new byEveryone(180, 180);
+		
+		s1.byEveryone(1, 1);
+	}
+}
+
+//문제 1-4
+package next01;
+
+class Cat{
+	String name;
+	int age;
+	String sex;
+	
+	public Cat(String name, int age, String sex){
+		this.name = name;
+		this.age=age;
+		this.sex=sex;
+	}
+	
+	public void CatInfo() {
+		System.out.printf("이름: %s, 나이: %d, 성별: %s", name, age, sex);
+	}
+}
+public class quiz1x4 {
+
+	public static void main(String[] args) {
+		Cat s1 = new Cat("name", 3, "수컷");
+		
+		s1.CatInfo();
+	}
+}
+
+// 문제 1-5
+package next01;
+
+public class quiz1x5 {
+
+	public static void main(String[] args) {
+		String str = "baa";
+		
+		int index=0;
+		int index2=0;
+		
+		index=str.indexOf("b");
+		index2=str.indexOf("a");
+		
+		System.out.printf("a는 %d번째에서 처음 등장합니다. \n", index2+1);
+		System.out.printf("b는 %d번째에서 처음 등장합니다. \n", index+1);
+	}
+
+}
+
+// 문제 2-1
+package next01;
+
+import java.util.Scanner;
+
+class Circle{
+	double rad = 0;
+	final double PI = 3.14;
+	
+	public Circle() {
+		
+	}
+	
+	public Circle(double r) {
+		setRad(); }
+
+	public double getArea(double r) {
+		return(r*r)*PI;
+	}
+	
+	public double setRad() {
+		System.out.printf("반지름을 입력하시오. \n");
+		double rad = 0;
+		Scanner sc = new Scanner(System.in);
+		rad = sc.nextDouble();
+		if(rad > 0) {
+		return rad;}
+		else {
+			System.out.printf("절대값으로 계산합니다. \n");
+			return -rad;
+			}
+		}
+	
+}
+public class quiz2x1 {
+
+	public static void main(String[] args) {
+		Circle s1 = new Circle();
+		System.out.printf("원의 넓이: %.3f \n", s1.getArea(s1.setRad()));
+	}
+}
+
+// 문제 2-2
+package next01;
+
+import java.util.Scanner;
+
+public class quiz2x2 {
+
+	public static void main(String[] args) {
+		System.out.printf("태어난 연도를 입력하세요. \n");
+		int BirthYear;
+		Scanner sc = new Scanner(System.in);
+		BirthYear = sc.nextInt();
+		
+		if(BirthYear % 12 == 1) {
+			System.out.printf("닭띠");
+		}
+		else if(BirthYear % 12 == 2) {
+			System.out.printf("개띠");
+		}
+		else if(BirthYear % 12 == 3) {
+			System.out.printf("돼지띠");
+		}
+		else if(BirthYear % 12 == 4) {
+			System.out.printf("쥐띠");
+		}
+		else if(BirthYear % 12 == 5) {
+			System.out.printf("소띠");
+		}
+		else if(BirthYear % 12 == 6) {
+			System.out.printf("호랑이띠");
+		}
+		else if(BirthYear % 12 == 7) {
+			System.out.printf("토끼띠");
+		}
+		else if(BirthYear % 12 == 8) {
+			System.out.printf("용띠");
+		}
+		else if(BirthYear % 12 == 9) {
+			System.out.printf("뱀띠");
+		}
+		else if(BirthYear % 12 == 10) {
+			System.out.printf("말띠");
+		}
+		else if(BirthYear % 12 == 11) {
+			System.out.printf("양띠");
+		}
+		else if(BirthYear % 12 == 0) {
+			System.out.printf("원숭이띠");
+		}
+	}
+}
+
+// 문제 2-3
+package next01;
+
+import java.util.Scanner;
+
+class Student{
+	private String name;
+	private int id;
+	private String sex;
+	
+	public Student(String name, int id, String sex) {
+		this.name=name;
+		this.id=id;
+		this.sex=sex;
+	}
+public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+}
+	
+public class quiz2x3 {
+
+	public static void main(String[] args) {
+		
+		
+		String name, sex;
+		int id;
+		
+		Student[] arr = new Student[2]; 
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.printf("이름, 학번, 성별을 입력하시오. \n");
+		
+		for(int i=0; i<2; i++) {
+			System.out.println((i+1)+"번째 학생의 이름을 입력하세요.");
+			name=sc.next();
+			
+			System.out.println((i+1)+"번째 학생의 학번을 입력하세요.");
+			id=sc.nextInt();
+			
+			System.out.println((i+1)+"번째 학생의 성별을 입력하세요.(남/여)");
+			sex=sc.next();
+			
+			arr[i] = new Student(name, id, sex);
+		}
+		
+		System.out.printf("이동준 학생의 학번을 변경합니다. 학번을 입력하세요.");
+		int changeid =0;
+		changeid = sc.nextInt();
+		arr[0].setId(changeid);
+		
+		System.out.printf("전체 학생 정보를 출력합니다. \n");
+		for(int i=0; i<2; i++) {
+			System.out.print("학생명 :" + arr[i].getName());
+			System.out.print("\n" + "학번 :" + arr[i].getId());
+			System.out.print("\n" + "성별 :" + arr[i].getSex()+"\n");	
+			}
+		}
+	}
+
+// 문제 2-4
+package next01;
+
+import java.util.Scanner;
+
+class crypto{
+	String name;
+	crypto(){
+	}
+	
+	public void cryptocharAt() {
+		System.out.printf("문자열을 입력하세요. \n");
+		Scanner sc = new Scanner(System.in);
+		name=sc.next();
+		for(int i = 0; i < name.length(); i++) {
+			if(name.charAt(i) == 'a') {
+				System.out.printf("ㄱ");
+			}	
+			else if(name.charAt(i) == 'b') {
+				System.out.printf("ㄴ");
+			}	
+			else if(name.charAt(i) == 'c') {
+				System.out.printf("ㄷ");
+			}	
+			else if(name.charAt(i) == 'd') {
+				System.out.printf("ㄹ");
+			}	
+			else if(name.charAt(i) == 'e') {
+				System.out.printf("ㅁ");
+			}	
+			else if(name.charAt(i) == 'f') {
+				System.out.printf("ㅂ");
+			}	
+			else if(name.charAt(i) == 'g') {
+				System.out.printf("ㅅ");
+			}	
+			else if(name.charAt(i) == 'h') {
+				System.out.printf("ㅇ");
+			}	
+			else if(name.charAt(i) == 'i') {
+				System.out.printf("ㅈ");
+			}	
+			else if(name.charAt(i) == 'j') {
+				System.out.printf("ㅊ");
+			}	
+			else if(name.charAt(i) == 'k') {
+				System.out.printf("ㅋ");
+			}	
+			else if(name.charAt(i) == 'l') {
+				System.out.printf("ㅌ");
+			}	
+			else if(name.charAt(i) == 'm') {
+				System.out.printf("ㅍ");
+			}	
+			else if(name.charAt(i) == 'n') {
+				System.out.printf("ㅎ");
+			}	
+			else if(name.charAt(i) == 'o') {
+				System.out.printf("ㅏ");
+			}	
+			else if(name.charAt(i) == 'p') {
+				System.out.printf("ㅑ");
+			}	
+			else if(name.charAt(i) == 'q') {
+				System.out.printf("ㅓ");
+			}	
+			else if(name.charAt(i) == 'r') {
+				System.out.printf("ㅕ");
+			}	
+			else if(name.charAt(i) == 's') {
+				System.out.printf("ㅗ");
+			}	
+			else if(name.charAt(i) == 't') {
+				System.out.printf("ㅛ");
+			}	
+			else if(name.charAt(i) == 'u') {
+				System.out.printf("ㅜ");
+			}	
+			else if(name.charAt(i) == 'v') {
+				System.out.printf("ㅠ");
+			}	
+			else if(name.charAt(i) == 'w') {
+				System.out.printf("ㅡ");
+			}	
+			else if(name.charAt(i) == 'x') {
+				System.out.printf("ㅣ");
+			}	
+		}
+	}
+}
+public class quiz2x4 {
+
+	public static void main(String[] args) {
+		crypto s1 = new crypto();
+		s1.cryptocharAt();
+	}
+}
+
+// 문제 2-5
+package next01;
+
+class Count{
+	
+	public void Count() {
+		String name = "baa";
+		int cnt1 = 0, cnt2=0;
+		for(int i = 0; i<name.length(); i++) {
+			if(name.charAt(i) == 'a') {
+			cnt1++;
+			}
+			if(name.charAt(i) == 'b') {
+			cnt2++;
+			}
+		}
+		System.out.printf("'a'는 %d글자입니다.", cnt1);
+		System.out.printf("'b'는 %d글자입니다.", cnt2);
+	}
+	
+}
+public class quiz2x5 {
+
+	public static void main(String[] args) {
+		String name = "baa";
+		
+		Count s1 = new Count();
+		s1.Count();
+	}
+
+}
+
+// 문제 3-1
+package next01;
+
+public class quiz3x1 {
+
+	public static void main(String[] args) {
+		
+		for(int dan=2; dan<10; dan++) {
+			int i=1;
+			for(i=1; i<10; i++) {
+				System.out.printf("%d * %d = %d \n", dan, i, dan*i);
+			}
+		}
+	}
+}
+
+// 문제 3-2
+package next01;
+
+public class quiz3x2 {
+
+	public static void main(String[] args) {
+		for(int i=1; i<6; i++) {
+			for(int j=5; j>i; j--) {
+				System.out.print(" ");
+			}
+			for(int j=1; j<=i*2-1; j++) {
+				System.out.print("*");	
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+// 문제 3-3
+package next01;
+
+class newStudent{
+	private String name;
+	private int id;
+	private String sex;
+	
+	public newStudent(String name, int id, String sex){
+		this.name=name;
+		this.id=id;
+		this.sex=sex;
+	}
+	public void infoStudent() {
+		System.out.printf("이름: %s, 학번: %d, 성별: %s", name, id, sex);
+	}
+}
+public class quiz3x3 {
+
+	public static void main(String[] args) {
+		newStudent s1= new newStudent("이동준", 2009038033, "남");
+		
+		s1.infoStudent();
+	}
+
+}
+
+// 문제 3-4
+package next01;
+class multipleSum {
+	public int multipleSum() {
+	int sum=0;
+	for(int i=1; i<100; i++) {
+		if(i%3==0) {
+			sum=sum;
+		} else {sum+=i;}
+	}
+	return sum;
+	}
+	
+	public void showSum() {
+		System.out.printf("배수의 합: %d", multipleSum());
+	}
+}
+public class quiz3x4 {
+
+	public static void main(String[] args) {
+		multipleSum s1 = new multipleSum();
+		s1.showSum();
+	}
+}
+
+// 문제 3-5
+package next01;
+
+import java.util.Scanner;
+
+class weatherAlert{
+	int month;
+	
+	weatherAlert(){
+	}
+	
+	void weatherAlert() {
+		System.out.printf("월 입력");
+		Scanner sc = new Scanner(System.in);
+		month = sc.nextInt();
+		
+		if(month>12 || month<0) {
+			System.out.printf("1~12월 사이를 입력");
+		}
+		if(month>0 && month<13) {
+			if(month%12<3) {
+				System.out.printf("겨울입니다.");
+			}
+			else if(month%12>2 && month%12<6) {
+				System.out.printf("봄입니다.");
+			}
+			else if(month%12>5 && month%12<9) {
+				System.out.printf("여름입니다.");
+			}
+			else if(month%12>10 && month%12<12)
+				System.out.printf("가을입니다.");
+			}
+		}
+	}
+
+public class quiz3x5 {
+
+	public static void main(String[] args) {
+		weatherAlert s1 = new weatherAlert();
+		
+		s1.weatherAlert();
+	}
+}
+
+// 문제 4-1
+package next01;
+
+class Sum {
+	int sum = 0;
+	
+	Sum(){
+	}
+	
+	public void showSum() {
+		for(int i=1; i<=100; i++) {
+			sum+=i;
+		}
+		System.out.printf("결과값: %d", sum);
+	}
+}
+public class quiz4x1 {
+
+	public static void main(String[] args) {
+		Sum s1 = new Sum();
+		
+		s1.showSum();
+	}
+}
+
+// 문제 4-2
+package next01;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar; 
+import java.util.Date;
+
+public class quiz4x2 {
+
+	public static void main(String[] args) {
+		Date date = new Date();
+		
+		SimpleDateFormat kor = new SimpleDateFormat("yyyy년 MM월 dd일 hh시 mm분 ss초 aa");
+		System.out.printf(kor.format(date));
+	}
+}
+
+// 문제 4-3
+package next01;
+
+class Dog{
+	String name;
+	int age;
+	String sex;
+	
+	Dog(String name, int age, String sex){
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+	}
+	
+	void infoDog() {
+		System.out.printf("이름: %s, 나이: %d, 성별: %s", name, age, sex);
+	}
+}
+
+public class quiz4x3 {
+
+	public static void main(String[] args) {
+		Dog s1 = new Dog("멍멍이", 9, "수컷");
+		
+		s1.infoDog();
+	}
+
+}
+
+// 문제 4-4
+package next01;
+
+import java.util.Scanner;
+
+class trans{
+	int s;
+	
+	void trans(){
+		System.out.printf("변환할 숫자 입력");
+		Scanner sc = new Scanner(System.in);
+		s = sc.nextInt();
+		
+		int m = s/60;
+		s = s-(60*m);
+		
+		System.out.printf("%dmin, %dsec", m, s);
+		
+	}
+}
+
+public class quiz4x4 {
+
+	public static void main(String[] args) {
+		trans s1 = new trans();
+		
+		s1.trans();
+	}
+
+}
+
+// 문제 4-5
+package next01;
+
+import java.util.Scanner;
+
+public class quiz4x5 {
+
+	public static void main(String[] args) {
+		int temp =  0;
+		int [] arr = new int [5];
+		System.out.printf("5개 정수를 입력 \n");
+		
+		for(int i = 0; i<arr.length; i++) {
+			Scanner sc = new Scanner(System.in);
+			int num = sc.nextInt();
+			arr[i] = num;
+		}
+		
+		for(int i = 0; i<arr.length; i++) {
+			int j = 0;
+			for(j=0; j<arr.length-1; j++) {
+				if(arr[j] > arr[j+1]) {
+					temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+		}
+		System.out.printf("입력된 수 중 최댓값: %d \n", arr[4]);
+		
+		for(int i = 0; i<arr.length; i++) {
+			int j=0;
+			for(j=0; j<arr.length-1; j++) {
+				if(arr[j] < arr[j+1]) {
+					temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+		}
+		System.out.printf("입력된 수 중 최솟값: %d", arr[4]);
+	}
+}
